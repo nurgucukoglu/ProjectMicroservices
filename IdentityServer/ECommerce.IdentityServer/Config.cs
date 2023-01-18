@@ -13,43 +13,30 @@ namespace ECommerce.IdentityServer
         public static IEnumerable<ApiResource> ApiResources =>
                    new ApiResource[]
                    {
-                        new ApiResource("Resources_Catalog")
-                        {
-                            Scopes={"Catalog_FullPermission" }
-                        },
-                         new ApiResource("Resources_Order")
-                        {
-                            Scopes={ "Order_FullPermission" }
-                        },
-                          new ApiResource("Resources_Discount")
-                        {
-                            Scopes={ "Discount_FullPermission" }
-                        },
-                           new ApiResource("Resources_Basket")
-                        {
-                            Scopes={ "Basket_FullPermission" }
-                        },
-                            new ApiResource("Resources_Payment")
-                        {
-                            Scopes={ "Payment_FullPermission" }
-                        },
-                            new ApiResource("Resources_Photo_Stock")
-                        {
-                            Scopes={ "Photo_Stock_FullPermission" }
-                        },
-                    new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
-
+                       new ApiResource("Resources_Catalog"){  Scopes={"Catalog_FullPermission" } },
+                         //new ApiResource("Resources_Order") {  Scopes={ "Order_FullPermission" }  },
+                         //    new ApiResource("Resources_Discount") {  Scopes={ "Discount_FullPermission" } },
+                         //        new ApiResource("Resources_Basket"){Scopes={ "Basket_FullPermission" }},
+                         //            new ApiResource("Resources_Payment"){ Scopes={ "Payment_FullPermission" } },
+                                         new ApiResource("Resources_Photo_Stock") { Scopes={ "Photo_Stock_FullPermission" } },
+                                            new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
 
                    };
-
+        public static IEnumerable<IdentityResource> IdentityResources =>
+            new IdentityResource[]
+            {
+                new IdentityResources.Email(),
+                new IdentityResources.Profile(),
+                new IdentityResources.OpenId(),
+            };
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
             {
                new ApiScope("Catalog_FullPermission","Katalog API için tam yetkili erişim."),
-                new ApiScope("Order_FullPermission", "sipariş api için tam yetkili erişim"),
-                new ApiScope("Discount_FullPermission", "indirim api için tam yetkili erişim"),
-                new ApiScope("Basket_FullPermission", "sepet api için tam yetkili erişim"),
-                new ApiScope("Payment_FullPermission", "ödeme api için tam yetkili erişim"),
+                //new ApiScope("Order_FullPermission", "sipariş api için tam yetkili erişim"),
+                //new ApiScope("Discount_FullPermission", "indirim api için tam yetkili erişim"),
+                //new ApiScope("Basket_FullPermission", "sepet api için tam yetkili erişim"),
+                //new ApiScope("Payment_FullPermission", "ödeme api için tam yetkili erişim"),
                 new ApiScope("Photo_Stock_FullPermission", "fotoğraf api için tam yetkili erişim"),
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
@@ -58,7 +45,7 @@ namespace ECommerce.IdentityServer
             new Client[]
             {
                 // m2m client credentials flow client
-                new Client
+                new Client //authentike olmadan çalışıcak, bunun üzeinden kayıt yapılacak
                 {
                     ClientId = "mvcclient",
                     ClientName = "asp.netcoremvc",
@@ -66,16 +53,18 @@ namespace ECommerce.IdentityServer
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     ClientSecrets = { new Secret("secret".Sha256()) },
 
-                    AllowedScopes = { "Catalog_FullPermission", "Order_FullPermission", "Discount_FullPermission", "Basket_FullPermission", "Payment_FullPermission", "Photo_Stock_FullPermission",IdentityServerConstants.LocalApi.ScopeName } 
+                    AllowedScopes = { "Catalog_FullPermission", /*"Order_FullPermission", "Discount_FullPermission", "Basket_FullPermission",*/ /*"Payment_FullPermission",*/ "Photo_Stock_FullPermission",IdentityServerConstants.LocalApi.ScopeName } 
                 },
 
                 // interactive client using code flow + pkce
-                new Client
+                new Client //auth olduktan sonra burası çalışacak
                 {
                     ClientId = "interactive",
                     ClientSecrets = { new Secret("49C1A7E1-0C79-4A89-A3D6-A37998FB86B0".Sha256()) },
 
                     AllowedGrantTypes = GrantTypes.Code,
+
+                    AccessTokenLifetime=50,
 
                     RedirectUris = { "https://localhost:44300/signin-oidc" },
                     FrontChannelLogoutUri = "https://localhost:44300/signout-oidc",

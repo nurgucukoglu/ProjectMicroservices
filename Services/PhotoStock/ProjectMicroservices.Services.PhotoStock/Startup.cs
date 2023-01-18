@@ -1,6 +1,3 @@
-using ECommerce.Services.Catalog.Services;
-using ECommerce.Services.Catalog.Settings;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -8,14 +5,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ECommerce.Services.Catalog
+namespace ProjectMicroservices.Services.PhotoStock
 {
     public class Startup
     {
@@ -29,27 +25,11 @@ namespace ECommerce.Services.Catalog
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-            {
-                options.Authority = Configuration["IdentityServerURL"];
-                options.Audience = "Resources_Catalog";
-                options.RequireHttpsMetadata = false;
-            });
-
-            services.AddScoped<ICategoryService, CategoryService>();
-            services.AddScoped<IProductService, ProductService>();
-            services.AddAutoMapper(typeof(Startup));
-
-            services.Configure<DatabaseSettings>(Configuration.GetSection("DatabaseSettings"));
-            services.AddSingleton<IDatabaseSettings>(sp =>   //uygulama ayaða kalkýnca veritabanu oluþsun.
-            {
-                return sp.GetRequiredService<IOptions<DatabaseSettings>>().Value;
-            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ECommerce.Services.Catalog", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProjectMicroservices.Services.PhotoStock", Version = "v1" });
             });
         }
 
@@ -60,12 +40,10 @@ namespace ECommerce.Services.Catalog
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ECommerce.Services.Catalog v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ProjectMicroservices.Services.PhotoStock v1"));
             }
 
             app.UseRouting();
-
-            app.UseAuthentication();
 
             app.UseAuthorization();
 
