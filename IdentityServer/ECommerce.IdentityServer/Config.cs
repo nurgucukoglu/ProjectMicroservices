@@ -15,8 +15,8 @@ namespace ECommerce.IdentityServer
                    {
                        new ApiResource("Resources_Catalog"){  Scopes={"Catalog_FullPermission" } },
                          //new ApiResource("Resources_Order") {  Scopes={ "Order_FullPermission" }  },
-                         //    new ApiResource("Resources_Discount") {  Scopes={ "Discount_FullPermission" } },
-                         //        new ApiResource("Resources_Basket"){Scopes={ "Basket_FullPermission" }},
+                            new ApiResource("Resources_Discount") {  Scopes={ "Discount_FullPermission" } },
+                                 new ApiResource("Resources_Basket"){Scopes={ "Basket_FullPermission" }},
                          //            new ApiResource("Resources_Payment"){ Scopes={ "Payment_FullPermission" } },
                                          new ApiResource("Resources_Photo_Stock") { Scopes={ "Photo_Stock_FullPermission" } },
                                             new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
@@ -34,8 +34,8 @@ namespace ECommerce.IdentityServer
             {
                new ApiScope("Catalog_FullPermission","Katalog API için tam yetkili erişim."),
                 //new ApiScope("Order_FullPermission", "sipariş api için tam yetkili erişim"),
-                //new ApiScope("Discount_FullPermission", "indirim api için tam yetkili erişim"),
-                //new ApiScope("Basket_FullPermission", "sepet api için tam yetkili erişim"),
+                new ApiScope("Discount_FullPermission", "indirim api için tam yetkili erişim"),
+                new ApiScope("Basket_FullPermission", "sepet api için tam yetkili erişim"),
                 //new ApiScope("Payment_FullPermission", "ödeme api için tam yetkili erişim"),
                 new ApiScope("Photo_Stock_FullPermission", "fotoğraf api için tam yetkili erişim"),
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
@@ -59,19 +59,19 @@ namespace ECommerce.IdentityServer
                 // interactive client using code flow + pkce
                 new Client //auth olduktan sonra burası çalışacak
                 {
-                    ClientId = "interactive",
-                    ClientSecrets = { new Secret("49C1A7E1-0C79-4A89-A3D6-A37998FB86B0".Sha256()) },
+                    ClientId = "mvcclientforuser",
+                    ClientSecrets = { new Secret("secret".Sha256()) },
 
-                    AllowedGrantTypes = GrantTypes.Code,
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
 
-                    AccessTokenLifetime=50,
+                    AccessTokenLifetime=300,
 
-                    RedirectUris = { "https://localhost:44300/signin-oidc" },
-                    FrontChannelLogoutUri = "https://localhost:44300/signout-oidc",
-                    PostLogoutRedirectUris = { "https://localhost:44300/signout-callback-oidc" },
+                   
 
                     AllowOfflineAccess = true,
-                    AllowedScopes = { "openid", "profile", "scope2" }
+                    AllowedScopes = { "Catalog_FullPermission", "Basket_FullPermission", "Discount_FullPermission", IdentityServerConstants.StandardScopes.Email, IdentityServerConstants.StandardScopes.OpenId, IdentityServerConstants.StandardScopes.Profile, IdentityServerConstants.StandardScopes.OfflineAccess, IdentityServerConstants.LocalApi.ScopeName}
+
+                   
                 },
             };
     }

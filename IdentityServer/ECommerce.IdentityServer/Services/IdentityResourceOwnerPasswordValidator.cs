@@ -25,14 +25,16 @@ namespace ECommerce.IdentityServer.Services
                 var errors= new Dictionary<string, object>();
                 errors.Add("errors", "email adresiniz veya şifreniz yanlıştır.");
                 context.Result.CustomResponse = errors;
+                return;
             }
-
+           
             var passwordCheck= await _userManager.CheckPasswordAsync(existUser,context.Password);
             if (passwordCheck == false)
             {
                 var errors = new Dictionary<string, object>();
                 errors.Add("errors", "email adresiniz veya şifreniz yanlıştır.");
                 context.Result.CustomResponse = errors;
+                return;
             }
 
             context.Result = new GrantValidationResult(existUser.Id.ToString(), OidcConstants.AuthenticationMethods.Password);
