@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using ProjectMicroservices.Order.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +27,14 @@ namespace ProjectMicroservices.Services.Order.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddDbContext<OrderDbContext>(opt=>
+            {
+                opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), configure=>
+                {
+                    configure.MigrationsAssembly("ProjectMicroservices.Order.Infrastructure");
+                });
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
