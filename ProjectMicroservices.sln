@@ -25,31 +25,39 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerce.IdentityServer", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{03BBA6E6-8E77-4FB7-8927-61918E1F44B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectMicroservices.Services.Basket", "Services\Basket\ProjectMicroservices.Services.Basket\ProjectMicroservices.Services.Basket.csproj", "{AA1046EE-5476-48D5-A844-9E5EE2260462}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectMicroservices.Services.Basket", "Services\Basket\ProjectMicroservices.Services.Basket\ProjectMicroservices.Services.Basket.csproj", "{AA1046EE-5476-48D5-A844-9E5EE2260462}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{E6C644EF-604F-4B36-B246-8C18A8AD7C59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectMicroservices.Services.Discount", "Services\Discount\ProjectMicroservices.Services.Discount\ProjectMicroservices.Services.Discount.csproj", "{D8FD00F2-D79A-45F5-922E-6DC0D9968006}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectMicroservices.Services.Discount", "Services\Discount\ProjectMicroservices.Services.Discount\ProjectMicroservices.Services.Discount.csproj", "{D8FD00F2-D79A-45F5-922E-6DC0D9968006}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FakePayment", "FakePayment", "{9BE6BB8C-C5BE-4E7E-9D00-7119ECA77126}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectMicroservices.Services.FakePayment", "Services\FakePayment\ProjectMicroservices.Services.FakePayment\ProjectMicroservices.Services.FakePayment.csproj", "{5BCE7BA8-5CC1-4500-BC44-BA2C953BB3F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectMicroservices.Services.FakePayment", "Services\FakePayment\ProjectMicroservices.Services.FakePayment\ProjectMicroservices.Services.FakePayment.csproj", "{5BCE7BA8-5CC1-4500-BC44-BA2C953BB3F7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Order", "Order", "{AAEDB016-D3B5-4FA5-9F5E-0CF460F2E33C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectMicroservices.Services.Order.Api", "Services\Order\ProjectMicroservices.Services.Order.Api\ProjectMicroservices.Services.Order.Api.csproj", "{3FBF05A9-D548-44F5-8349-1BF1C7A9B8FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectMicroservices.Services.Order.Api", "Services\Order\ProjectMicroservices.Services.Order.Api\ProjectMicroservices.Services.Order.Api.csproj", "{3FBF05A9-D548-44F5-8349-1BF1C7A9B8FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectMicroservices.Order.Application", "Services\Order\ProjectMicroservices.Order.Application\ProjectMicroservices.Order.Application.csproj", "{E32917CE-5EB0-4813-97FC-EE75C5FBC0E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectMicroservices.Order.Application", "Services\Order\ProjectMicroservices.Order.Application\ProjectMicroservices.Order.Application.csproj", "{E32917CE-5EB0-4813-97FC-EE75C5FBC0E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectMicroservices.Order.Domain", "Services\Order\ProjectMicroservices.Order.Domain\ProjectMicroservices.Order.Domain.csproj", "{94BB1594-D0D8-4FF0-8B1C-4A57169F899B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectMicroservices.Order.Domain", "Services\Order\ProjectMicroservices.Order.Domain\ProjectMicroservices.Order.Domain.csproj", "{94BB1594-D0D8-4FF0-8B1C-4A57169F899B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectMicroservices.Order.Domain.Core", "Services\Order\ProjectMicroservices.Order.Domain.Core\ProjectMicroservices.Order.Domain.Core.csproj", "{DB9F8DBF-E097-48E8-BD6F-1C9FC3F803B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectMicroservices.Order.Domain.Core", "Services\Order\ProjectMicroservices.Order.Domain.Core\ProjectMicroservices.Order.Domain.Core.csproj", "{DB9F8DBF-E097-48E8-BD6F-1C9FC3F803B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectMicroservices.Order.Infrastructure", "Services\Order\ProjectMicroservices.Order.Infrastructure\ProjectMicroservices.Order.Infrastructure.csproj", "{3792748E-ADB2-481F-9491-A5C3E423F47F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectMicroservices.Order.Infrastructure", "Services\Order\ProjectMicroservices.Order.Infrastructure\ProjectMicroservices.Order.Infrastructure.csproj", "{3792748E-ADB2-481F-9491-A5C3E423F47F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PhotoStock", "PhotoStock", "{5AB4D5CA-D67F-4BCB-8095-08967D9D316D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectMicroservices.Services.PhotoStock", "Services\PhotoStock\ProjectMicroservices.Services.PhotoStock\ProjectMicroservices.Services.PhotoStock.csproj", "{093DA995-668D-400C-B29B-AD21ABF09FAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectMicroservices.Services.PhotoStock", "Services\PhotoStock\ProjectMicroservices.Services.PhotoStock\ProjectMicroservices.Services.PhotoStock.csproj", "{093DA995-668D-400C-B29B-AD21ABF09FAF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GateWays", "GateWays", "{BBE9D7E1-AC72-4389-9C8D-51622AEA708E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectMicroservices.GateWays", "GateWays\ProjectMicroservices.GateWays\ProjectMicroservices.GateWays.csproj", "{244D77A5-FA1B-4AB2-80A1-3CAEB8ACACEC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{B627F4F8-B9F6-4159-A4FC-AB7726DD3721}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectMicroservices.Web", "FrontEnd\ProjectMicroservices.Web\ProjectMicroservices.Web.csproj", "{304F67C0-ECDB-404F-815A-AF86F9BFF52C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +113,14 @@ Global
 		{093DA995-668D-400C-B29B-AD21ABF09FAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{093DA995-668D-400C-B29B-AD21ABF09FAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{093DA995-668D-400C-B29B-AD21ABF09FAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{244D77A5-FA1B-4AB2-80A1-3CAEB8ACACEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{244D77A5-FA1B-4AB2-80A1-3CAEB8ACACEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{244D77A5-FA1B-4AB2-80A1-3CAEB8ACACEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{244D77A5-FA1B-4AB2-80A1-3CAEB8ACACEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{304F67C0-ECDB-404F-815A-AF86F9BFF52C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{304F67C0-ECDB-404F-815A-AF86F9BFF52C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{304F67C0-ECDB-404F-815A-AF86F9BFF52C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{304F67C0-ECDB-404F-815A-AF86F9BFF52C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -128,6 +144,8 @@ Global
 		{3792748E-ADB2-481F-9491-A5C3E423F47F} = {AAEDB016-D3B5-4FA5-9F5E-0CF460F2E33C}
 		{5AB4D5CA-D67F-4BCB-8095-08967D9D316D} = {E4B4DCED-3AB3-4EC2-BCF8-5D417B2D44B4}
 		{093DA995-668D-400C-B29B-AD21ABF09FAF} = {5AB4D5CA-D67F-4BCB-8095-08967D9D316D}
+		{244D77A5-FA1B-4AB2-80A1-3CAEB8ACACEC} = {BBE9D7E1-AC72-4389-9C8D-51622AEA708E}
+		{304F67C0-ECDB-404F-815A-AF86F9BFF52C} = {B627F4F8-B9F6-4159-A4FC-AB7726DD3721}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF9F1C38-F233-496B-B216-C520BBDA5A75}

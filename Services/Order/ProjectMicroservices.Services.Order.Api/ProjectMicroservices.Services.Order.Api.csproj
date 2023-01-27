@@ -5,6 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="11.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.17">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -13,10 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\ProjectEcommerce.Shared\Ecommerce.Shared.csproj" />
+    <ProjectReference Include="..\ProjectMicroservices.Order.Application\ProjectMicroservices.Order.Application.csproj" />
     <ProjectReference Include="..\ProjectMicroservices.Order.Infrastructure\ProjectMicroservices.Order.Infrastructure.csproj" />
   </ItemGroup>
 

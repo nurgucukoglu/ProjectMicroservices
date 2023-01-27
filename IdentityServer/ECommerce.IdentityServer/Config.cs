@@ -14,11 +14,13 @@ namespace ECommerce.IdentityServer
                    new ApiResource[]
                    {
                        new ApiResource("Resources_Catalog"){  Scopes={"Catalog_FullPermission" } },
-                         //new ApiResource("Resources_Order") {  Scopes={ "Order_FullPermission" }  },
+                         new ApiResource("Resources_Order") {  Scopes={ "Order_FullPermission" }  },
                             new ApiResource("Resources_Discount") {  Scopes={ "Discount_FullPermission" } },
                                  new ApiResource("Resources_Basket"){Scopes={ "Basket_FullPermission" }},
-                         //            new ApiResource("Resources_Payment"){ Scopes={ "Payment_FullPermission" } },
+                                     new ApiResource("Resources_Payment"){ Scopes={ "Payment_FullPermission" } },
                                          new ApiResource("Resources_Photo_Stock") { Scopes={ "Photo_Stock_FullPermission" } },
+                                             new ApiResource("Resources_GateWay") { Scopes={ "GateWay_FullPermission" } },
+
                                             new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
 
                    };
@@ -33,11 +35,12 @@ namespace ECommerce.IdentityServer
             new ApiScope[]
             {
                new ApiScope("Catalog_FullPermission","Katalog API için tam yetkili erişim."),
-                //new ApiScope("Order_FullPermission", "sipariş api için tam yetkili erişim"),
+                new ApiScope("Order_FullPermission", "sipariş api için tam yetkili erişim"),
                 new ApiScope("Discount_FullPermission", "indirim api için tam yetkili erişim"),
                 new ApiScope("Basket_FullPermission", "sepet api için tam yetkili erişim"),
-                //new ApiScope("Payment_FullPermission", "ödeme api için tam yetkili erişim"),
+                new ApiScope("Payment_FullPermission", "ödeme api için tam yetkili erişim"),
                 new ApiScope("Photo_Stock_FullPermission", "fotoğraf api için tam yetkili erişim"),
+                new ApiScope("GateWay_FullPermission", "Gateway için tam yetkili erişim"),
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -53,12 +56,12 @@ namespace ECommerce.IdentityServer
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     ClientSecrets = { new Secret("secret".Sha256()) },
 
-                    AllowedScopes = { "Catalog_FullPermission", /*"Order_FullPermission", "Discount_FullPermission", "Basket_FullPermission",*/ /*"Payment_FullPermission",*/ "Photo_Stock_FullPermission",IdentityServerConstants.LocalApi.ScopeName } 
+                    AllowedScopes = { "Catalog_FullPermission", /*"Order_FullPermission", "Discount_FullPermission", "Basket_FullPermission",*/ /*"Payment_FullPermission",*/ "Photo_Stock_FullPermission", "GateWay_FullPermission", IdentityServerConstants.LocalApi.ScopeName }
                 },
 
                 // interactive client using code flow + pkce
                 new Client //auth olduktan sonra burası çalışacak
-                {
+                {  ClientName = "asp.netcoremvc",
                     ClientId = "mvcclientforuser",
                     ClientSecrets = { new Secret("secret".Sha256()) },
 
@@ -66,12 +69,12 @@ namespace ECommerce.IdentityServer
 
                     AccessTokenLifetime=300,
 
-                   
+
 
                     AllowOfflineAccess = true,
-                    AllowedScopes = { "Catalog_FullPermission", "Basket_FullPermission", "Discount_FullPermission", IdentityServerConstants.StandardScopes.Email, IdentityServerConstants.StandardScopes.OpenId, IdentityServerConstants.StandardScopes.Profile, IdentityServerConstants.StandardScopes.OfflineAccess, IdentityServerConstants.LocalApi.ScopeName}
+                    AllowedScopes = { "Catalog_FullPermission", "Basket_FullPermission", "Discount_FullPermission", "Order_FullPermission", "Payment_FullPermission", "GateWay_FullPermission", IdentityServerConstants.StandardScopes.Email, IdentityServerConstants.StandardScopes.OpenId, IdentityServerConstants.StandardScopes.Profile, IdentityServerConstants.StandardScopes.OfflineAccess, IdentityServerConstants.LocalApi.ScopeName}
 
-                   
+
                 },
             };
     }
